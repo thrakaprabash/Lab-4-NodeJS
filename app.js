@@ -4,6 +4,7 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const myModule = require('./my-module.js');
+const condition = true;
 
 fs.readFile('file.txt', 'utf8', function (err, data) {
   if (err) throw err;
@@ -38,5 +39,17 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
 
 console.log(myModule.myFunction());
 
+const myPromise = new Promise((resolve, reject) => {
+  if (condition) {
+    resolve('Success!');
+  } else {
+    reject('Failure!');
+  }
+});
 
+myPromise.then((result) => {
+  console.log(result);
+}).catch((error) => {
+  console.log(error);
+});
 
