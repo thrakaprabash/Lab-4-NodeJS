@@ -3,6 +3,7 @@ console.log("Hello NodeJS Lab 03!");
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
+const myModule = require('./my-module.js');
 
 fs.readFile('file.txt', 'utf8', function (err, data) {
   if (err) throw err;
@@ -34,6 +35,8 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
 }).on('error', (err) => {
   console.log("Error: " + err.message);
 });
+
+console.log(myModule.myFunction());
 
 
 
