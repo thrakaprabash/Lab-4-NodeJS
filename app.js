@@ -38,7 +38,7 @@ https.get('https://jsonplaceholder.typicode.com/posts/1', (resp) => {
 });
 
 console.log(myModule.myFunction());
-
+/*
 const myPromise = new Promise((resolve, reject) => {
   if (condition) {
     resolve('Success!');
@@ -52,4 +52,23 @@ myPromise.then((result) => {
 }).catch((error) => {
   console.log(error);
 });
+*/
+const myPromise = new Promise((resolve, reject) => {
+  if (condition) {
+    resolve('Success!');
+  } else {
+    reject('Failure!');
+  }
+});
+
+async function myFunction() {
+  try {
+    const result = await myPromise;
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+myFunction();
 
